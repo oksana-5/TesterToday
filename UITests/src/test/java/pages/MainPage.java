@@ -11,6 +11,6 @@ public class MainPage {
     public MainPage pageOpen() {
         sidenav.should(Condition.exist).shouldBe(Condition.visible);
 
-        return this;
+        return new MainPage();
     }
 }

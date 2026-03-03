@@ -7,7 +7,7 @@ import static data.Data.BASE_URL;
 import static io.restassured.RestAssured.given;
 import static java.net.HttpURLConnection.HTTP_OK;
 
-public class APITest {
+public class ModulesTest {
     @DataProvider
     public Object[][] modules() {
         return new Object[][]{

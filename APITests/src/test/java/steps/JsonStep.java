@@ -8,19 +8,19 @@ import static data.Data.BASE_URL;
 import static io.restassured.RestAssured.given;
 
 public class JsonStep {
-    private static Cookies cookies;
+    private final Cookies cookies;
 
-    public static void setCookies(Cookies cookies) {
-        JsonStep.cookies = cookies;
+    public JsonStep(Cookies cookies) {
+        this.cookies = cookies;
     }
 
-    public static Response sendJson(String json) {
+    public Response sendJson(String json) {
         return given()
                 .log().all()
                 .contentType(ContentType.JSON)
                 .cookies(cookies)
                 .body(json)
                 .when()
-                .post(BASE_URL + "check/9");
+                .post(BASE_URL.formatted("check/9"));
     }
 }
