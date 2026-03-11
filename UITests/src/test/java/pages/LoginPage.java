@@ -10,13 +10,17 @@ public class LoginPage {
     final SelenideElement passwordInput = $("[id='password']");
     final SelenideElement signInBtn = $("[type='submit']");
 
-    public void openPage() {
+    public LoginPage openPage() {
         open("login");
+
+        return this;
     }
 
-    public void login() {
+    public LoginPage login() {
         userInput.setValue("sana");
         passwordInput.setValue("mvWXhY7GNLu3SVy");
         signInBtn.submit();
+
+        return this;
     }
 }

@@ -1,13 +1,16 @@
+package tests;
+
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import static data.Data.BASE_URL;
 import static io.restassured.RestAssured.given;
 import static java.net.HttpURLConnection.HTTP_OK;
 
-public class APITest {
+public class ModulesTest {
     @DataProvider
     public Object[][] modules() {
-        return new Object[][] {
+        return new Object[][]{
                 {"qa"},
                 {"scrum"},
                 {"sdlc"},
@@ -20,7 +23,7 @@ public class APITest {
         given()
                 .log().all()
                 .when()
-                .get("https://www.tester-today.com/".formatted(module))
+                .get(BASE_URL.formatted(module))
                 .then()
                 .log().all()
                 .statusCode(HTTP_OK);
